@@ -16,12 +16,12 @@ class ApiFeatures{
     }
 
     filter(){
-        const queryCopy = {...this.queryStr}
+        const queryCopy = {...this.queryStr} // Created a copy of queryStr other with this.query will passes its reference with create problem.
         
         //removing some field for category
         const removeFields = ["keyword" , "page" , "Limit"];
         removeFields.forEach(key=>delete queryCopy[key]);
-
+       
         //filter for price
         
         let queryStr = JSON.stringify(queryCopy);
